@@ -1,9 +1,4 @@
 
-# from telegram import Update
-# from telegram.ext import Application, CommandHandler, CallbackContext
-
-# # Replace with your bot's token
-# # TOKEN = "7907539051:AAGbKDCs6oyFlWc53yGaTRW8j2NHmG1Akrg"
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
@@ -31,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Third message with video button
     video_keyboard = [[InlineKeyboardButton("Watch Video Guide", url="https://tinyurl.com/Trading-Bot-Video")]]
     await update.message.reply_text(
-        "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. Type "ready to install" after you watching. I'd be waiting here for you 🫵",
+        "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. Type "ready to install" after you watching. I'd be waiting here for you 🫵 " ,
         reply_markup=InlineKeyboardMarkup(video_keyboard)
     )
 
@@ -58,25 +53,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-# from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-# from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-# import asyncio
-
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-#     # Send the first message
-#     await update.message.reply_text(f"Hello {update.effective_user.first_name}! 👋")
-
-#     # Add a delay (e.g., 3 seconds)
-#     await asyncio.sleep(5)
-
-#     # Send the second message with a button
-#     keyboard = [[InlineKeyboardButton("Visit Our Website", url="https://www.example.com")]]
-#     await update.message.reply_text(
-#         text="Here's a button for you:",
-#         reply_markup=InlineKeyboardMarkup(keyboard)
-#     )
-
-# app = ApplicationBuilder().token("7907539051:AAGbKDCs6oyFlWc53yGaTRW8j2NHmG1Akrg").build()
-# app.add_handler(CommandHandler("start", start))
-# app.run_polling()
