@@ -26,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Third message with video button
     video_keyboard = [[InlineKeyboardButton("Watch Video Guide", url="https://tinyurl.com/Trading-Bot-Video")]]
     await update.message.reply_text(
-        "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. Type "ready to install" after you watching. I'd be waiting here for you 🫵 " ,
+        "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. \n\nType \"ready to install\" after you watching. I'd be waiting here for you 🫵 " ,
         reply_markup=InlineKeyboardMarkup(video_keyboard)
     )
 
