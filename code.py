@@ -29,9 +29,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. \n\n Send me the phrase \"ready to install\" after watching. Use the next link i will send to messsage me directly, I'd be waiting here for you 🫵 " ,
         reply_markup=InlineKeyboardMarkup(video_keyboard)
     )
+    await asyncio.sleep(180)
+    video_coach = [[InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")]]
+    await update.message.reply_text(
+        "🎉 Ready or not, you can chat with Coach Jessica here:",
+        reply_markup=InlineKeyboardMarkup(video_coach)
+    )
 
 async def handle_ready(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    video_coach = [[InlineKeyboardButton("Chat With Jessica", url="https://t.me/PhantomAITrader")]]
+    video_coach = [[InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")]]
     await update.message.reply_text("🎉 Chat with Coach Jessica",
     reply_markup =InlineKeyboardMarkup(video_coach)
     )
