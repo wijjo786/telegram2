@@ -31,7 +31,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
 
 async def handle_ready(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    video_coach = [[InlineKeyboardButton("Chat With Rachel", url="https://t.me/PhantomAITrader")]]
+    video_coach = [[InlineKeyboardButton("Chat With Jessica", url="https://t.me/PhantomAITrader")]]
     await update.message.reply_text("🎉 Chat with Coach Jessica",
     reply_markup =InlineKeyboardMarkup(video_coach)
     )
