@@ -30,10 +30,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         reply_markup=InlineKeyboardMarkup(video_keyboard)
     )
     context.user_data["replied_ready"] = False
-    asyncio.create_task(send_final_message_after_delay(update, context))
+    context.application.create_task(send_final_message_after_delay(update, context))
 
 async def send_final_message_after_delay(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await asyncio.sleep(180)
+    await asyncio.sleep(60)
 
     # Only send if user did not trigger "ready/install"
     if not context.user_data.get("replied_ready"):
