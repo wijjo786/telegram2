@@ -21,7 +21,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
 
     # Wait 15 seconds
-    await asyncio.sleep(15)
+    await asyncio.sleep(7)
 
     # Third message with video button
     video_keyboard = [[InlineKeyboardButton("Watch Video Guide", url="https://tinyurl.com/Trading-Bot-Video")]]
@@ -39,7 +39,7 @@ async def send_final_message_after_delay(update: Update, context: ContextTypes.D
     if not context.user_data.get("replied_ready"):
         video_coach = [[InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")]]
         await update.message.reply_text(
-            "🎉 Ready or not, you can chat with Coach Jessica here:",
+            "🎉 Ready or not, you can chat with Coach Jessica here",
             reply_markup=InlineKeyboardMarkup(video_coach)
         )
 
