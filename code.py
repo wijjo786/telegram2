@@ -29,7 +29,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. \n\n Send me the phrase \"ready to install\" after watching. Use the next link i will send to messsage me directly, I'd be waiting here for you 🫵 " ,
         reply_markup=InlineKeyboardMarkup(video_keyboard)
     )
-   asyncio.create_task(send_final_message_after_delay(update))
+    asyncio.create_task(send_final_message_after_delay(update))
 
 async def send_final_message_after_delay(update: Update):
     await asyncio.sleep(60)
