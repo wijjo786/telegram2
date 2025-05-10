@@ -32,7 +32,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
    asyncio.create_task(send_final_message_after_delay(update))
 
 async def send_final_message_after_delay(update: Update):
-    await asyncio.sleep(180)
+    await asyncio.sleep(60)
     video_coach = [[
         InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")
     ]]
