@@ -29,23 +29,26 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "Here's a link to the video guide as promised🤝. Be sure to watch it to the end as there's a giveaway at the end. Don't miss it😜. \n\n Send me the phrase \"ready to install\" after watching. Use the next link i will send to messsage me directly, I'd be waiting here for you 🫵 " ,
         reply_markup=InlineKeyboardMarkup(video_keyboard)
     )
-    asyncio.create_task(send_final_message_after_delay(update))
+    context.user_data["replied_ready"] = False
+    asyncio.create_task(send_final_message_after_delay(update, context))
 
-async def send_final_message_after_delay(update: Update):
-    await asyncio.sleep(60)
-    video_coach = [[
-        InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")
-    ]]
-    await update.message.reply_text(
-        "🎉 Ready or not, you can chat with Coach Jessica here:",
-        reply_markup=InlineKeyboardMarkup(video_coach)
-    )
+async def send_final_message_after_delay(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await asyncio.sleep(180)
+
+    # Only send if user did not trigger "ready/install"
+    if not context.user_data.get("replied_ready"):
+        video_coach = [[InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")]]
+        await update.message.reply_text(
+            "🎉 Ready or not, you can chat with Coach Jessica here:",
+            reply_markup=InlineKeyboardMarkup(video_coach)
+        )
 
 async def handle_ready(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    # Mark that user has responded
+    context.user_data["replied_ready"] = True
+
     video_coach = [[InlineKeyboardButton("Ready to Install", url="https://t.me/PhantomAITrader")]]
-    await update.message.reply_text("🎉 Chat with Coach Jessica",
-    reply_markup =InlineKeyboardMarkup(video_coach)
-    )
+    await update.message.reply_text("🎉 Chat with Coach Jessica", reply_markup=InlineKeyboardMarkup(video_coach))
 
 
 def main() -> None:
